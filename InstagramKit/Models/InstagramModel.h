@@ -24,7 +24,9 @@
 
 @property (readonly) NSString* Id;
 
-- (id)initWithInfo:(NSDictionary *)info;
+- (instancetype)initWithInfo:(NSDictionary *)info NS_DESIGNATED_INITIALIZER;
+
+- (BOOL)isEqualToModel:(InstagramModel *)model;
 
 @end
 
@@ -37,6 +39,7 @@
 #define kData @"data"
 #define kLatitude @"latitude"
 #define kLongitude @"longitude"
+#define kLocationName @"name"
 
 #define kThumbnail @"thumbnail"
 #define kLowResolution @"low_resolution"
@@ -46,6 +49,7 @@
 #define kMediaTypeVideo @"video"
 
 #define kUser @"user"
+#define kUserHasLiked @"user_has_liked"
 #define kCreatedDate @"created_time"
 #define kLink @"link"
 #define kCaption @"caption"
@@ -81,9 +85,11 @@
 #define kNextMaxId @"next_max_id"
 #define kNextMaxLikeId @"next_max_like_id"
 #define kNextMaxTagId @"next_max_tag_id"
+#define kNextCursor @"next_cursor"
 
 #define kMaxId @"max_id"
 #define kMaxLikeId @"max_like_id"
 #define kMaxTagId @"max_tag_id"
+#define kCursor @"cursor"
 
 #define IKNotNull(obj) (obj && (![obj isEqual:[NSNull null]]) && (![obj isEqual:@"<null>"]) )

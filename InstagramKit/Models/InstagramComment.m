@@ -23,7 +23,7 @@
 
 @implementation InstagramComment
 
-- (id)initWithInfo:(NSDictionary *)info
+- (instancetype)initWithInfo:(NSDictionary *)info
 {
     self = [super initWithInfo:info];
     if (self && IKNotNull(info)) {
@@ -32,6 +32,11 @@
         _createdDate = [[NSDate alloc] initWithTimeIntervalSince1970:[info[kCreatedDate] doubleValue]];
     }
     return self;
+}
+
+
+- (BOOL)isEqualToComment:(InstagramComment *)comment {
+    return [super isEqualToModel:comment];
 }
 
 
